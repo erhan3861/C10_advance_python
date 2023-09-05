@@ -10,11 +10,19 @@ class Person():
 
     def save(self):
         print(self.name,"isimli kişi kayıt edildi.")
+        
+    def to_json(self):
+        return {
+            "name" : self.name,
+            "surname" : self.surname,
+            "age" : self.age
+        }
 
 class Student(Person):
     def __init__(self, name, surname, age, number):
         super().__init__(name,surname, age)  # super kelimesi miras aldığım sınıfı abana anlatır
         self.number = number
+
 
 class Teacher(Person):
     def __init__(self, name, surname, age, lesson):
@@ -23,7 +31,7 @@ class Teacher(Person):
 
     def change_lesson(self, lesson):
         self.lesson = lesson
-
+        
 
 p = Person("Ali", "Yıldız", 15)
 p.show_info()
@@ -36,3 +44,8 @@ t.show_info()
 t.save()
 t.change_lesson("Graphic")
 print(t.lesson)
+
+ogrenciler = [s, p, t]
+
+s.name = "Çağlar"
+print(s.name)
