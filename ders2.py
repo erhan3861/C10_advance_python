@@ -1,4 +1,6 @@
 # miras almak
+import json
+
 class Person():
     def __init__(self, name, surname, age):
         self.name = name
@@ -49,3 +51,8 @@ ogrenciler = [s, p, t]
 
 s.name = "Çağlar"
 print(s.name)
+
+# Kişi bilgilerini JSON formatına dönüştürüp kaydediyoruz
+with open("person.json", "w") as f:
+    json.dump(p.to_json(), f, indent=4)
+
