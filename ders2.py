@@ -8,6 +8,9 @@ class Person():
     def show_info(self):
         print(self.name, self.surname, self.age)
 
+    def save(self):
+        print(self.name,"isimli kişi kayıt edildi.")
+
 class Student(Person):
     def __init__(self, name, surname, age, number):
         super().__init__(name,surname, age)  # super kelimesi miras aldığım sınıfı abana anlatır
@@ -18,11 +21,18 @@ class Teacher(Person):
         super().__init__(name, surname, age)  # super kelimesi miras aldığım sınıfı abana anlatır
         self.lesson = lesson
 
+    def change_lesson(self, lesson):
+        self.lesson = lesson
+
+
 p = Person("Ali", "Yıldız", 15)
 p.show_info()
 
 s = Student("İhsan", "Yılmaz", 14, 1001)
 s.show_info()
 
-t = Teacher("Mustafa", "Kaya", 15, 1002)
+t = Teacher("Mustafa", "Kaya", 15, "Coding")
 t.show_info()
+t.save()
+t.change_lesson("Graphic")
+print(t.lesson)
